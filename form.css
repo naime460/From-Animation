@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    justify-content: center;
+    display:flex ;
+    background: black;
+    min-height: 100vh;
+    align-items: center;
+    
+
+}
+/***************************************************** 2 ta border ****************************************************************************/
+.box{
+    position: relative;
+    width: 800px;
+    height: 800px;
+    background: #000000;
+    box-shadow: 0 0 91px #65ed34;
+    border-radius: 50%;
+}
+@property --a{
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.box::after{
+    content: '';
+    position: absolute;
+    background-image:repeating-conic-gradient(from var(--a), hsl(39.29deg 100% 50%) 0%, rgb(253 80 43) 5%, transparent 5%, transparent -5%, hsl(39.76deg 93.85% 39.07%) 50%);
+    top: 50%;
+    left: 50%;
+    height: 820px;
+    width: 820px;
+    translate: -50% -50%;
+    padding: 17px;
+    z-index: -1;
+    animation: spin 4s linear infinite;
+    border-radius: 50%;
+    filter: blur(5px);
+    opacity: 1;
+}
+@keyframes spin{
+    0%{
+        --a:0deg;
+    
+    }
+    100%{
+        --a:360deg;
+    }
+}
+/***************************************************** 2 ta border ****************************************************************************/
+/***************************************************** 4 ta border ****************************************************************************/
+.box_shop{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: repeating-conic-gradient(from var(--a), red 0%,red 5%,transparent 5%,transparent 40%,red 50%);
+    animation: animated 4s linear infinite;
+    margin-left:6% ;
+    border-radius: 50%;
+
+}
+@property --a{
+    syntax: 'angle';
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes animated{
+    0%{
+        --a:0deg;
+    }
+    100%{
+        --a:360deg;
+    }
+}
+.box_shop::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height:100%;
+    background: repeating-conic-gradient(from var(--a), rgb(0, 208, 255) 0%,rgb(0, 208, 255) 5%,transparent 5%,transparent 40%,rgb(0, 208, 255) 50%);
+    animation: animated 4s linear infinite;  
+    animation-delay:-1s;
+    filter: blur();
+    border-radius: 50%;
+
+}
+.box_shop::after{
+    content: '';
+    position: absolute;
+    inset: 20px;
+    background: #000000;
+    border-radius: 50%;
+
+    box-shadow: 0 0 40px #ff21e5;
+}
+/***************************************************** 4 ta border ****************************************************************************/
